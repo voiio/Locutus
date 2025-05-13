@@ -1,0 +1,33 @@
+services:
+
+  open-webui:
+    image: ghcr.io/open-webui/open-webui:main
+    pull_policy: always
+    ports:
+      - "8080:8080"
+    volumes:
+      - open-webui:/app/backend/data
+    extra_hosts:
+      - host.docker.internal:host-gateway
+    restart: unless-stopped
+    environment:
+      WEBUI_URL: https://${DOMAIN:-localhost}
+
+  caddy:
+    image: caddy
+    container_name: caddy
+    restart: unless-stopped
+    depends_on:
+      - open-webui
+    ports:
+      - 80:80
+      - 443:443
+    volumes:
+      - caddy:/data
+      - caddy:/config
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+
+volumes:
+  open-webui:
+  ollama:
+  caddy:
