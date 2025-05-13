@@ -1,2 +1,2 @@
 {$DOMAIN:localhost}
-reverse_proxy http://host.docker.internal:8080
+reverse_proxy http://open-webui:8080

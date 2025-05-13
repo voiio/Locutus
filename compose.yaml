@@ -1,21 +1,54 @@
 services:
 
-  open-webui:
-    image: ghcr.io/open-webui/open-webui:main
+  postgres:
+    container_name: postgres
+    image: postgres:latest
     pull_policy: always
-    ports:
-      - "8080:8080"
     volumes:
-      - open-webui:/app/backend/data
-    extra_hosts:
-      - host.docker.internal:host-gateway
+      - postgres:/var/lib/postgresql/data
     restart: unless-stopped
     environment:
+      POSTGRES_DB: open-webui
+      POSTGRES_USER: open-webui
+      POSTGRES_PASSWORD: open-webui
+    networks:
+      - open-webui
+
+  redis:
+    container_name: redis
+    image: docker.io/bitnami/redis:7.2.5
+    pull_policy: always
+    volumes:
+      - redis:/bitnami/redis/data
+    restart: unless-stopped
+    environment:
+      ALLOW_EMPTY_PASSWORD: yes
+    networks:
+      - open-webui
+
+  open-webui:
+    container_name: open-webui
+    image: ghcr.io/open-webui/open-webui:main
+    pull_policy: always
+    volumes:
+      - open-webui:/app/backend/data
+    restart: unless-stopped
+    depends_on:
+      - postgres
+      - redis
+    environment:
       WEBUI_URL: https://${DOMAIN:-localhost}
+      ENABLE_WEBSOCKET_SUPPORT: true
+      WEBSOCKET_MANAGER: redis
+      WEBSOCKET_REDIS_URL: redis://redis:6379/1
+      DATABASE_URL: postgresql://open-webui:open-webui@postgres/open-webui
+    networks:
+      - open-webui
 
   caddy:
-    image: caddy
     container_name: caddy
+    image: caddy
+    pull_policy: always
     restart: unless-stopped
     depends_on:
       - open-webui
@@ -26,8 +59,19 @@ services:
       - caddy:/data
       - caddy:/config
       - ./Caddyfile:/etc/caddy/Caddyfile:ro
+    networks:
+      - open-webui
+      - internet
 
 volumes:
+  postgres:
+  redis:
   open-webui:
-  ollama:
   caddy:
+
+networks:
+  open-webui:
+    driver: bridge
+    internal: true
+  internet:
+    driver: bridge
