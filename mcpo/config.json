@@ -30,13 +30,6 @@
         "-y",
         "@hubspot/mcp-server"
       ]
-    },
-    "metabase": {
-      "command": "npx",
-      "args": [
-        "-y",
-        "github:imlewc/metabase-server"
-      ]
     }
   }
 }
