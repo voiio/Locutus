@@ -16,7 +16,7 @@ services:
 
   redis:
     container_name: redis
-    image: docker.io/bitnami/redis:7.2.5
+    image: docker.io/bitnami/redis:8.0.1
     pull_policy: always
     volumes:
       - redis:/bitnami/redis/data
