@@ -32,6 +32,8 @@ services:
       context: mcpo
       dockerfile: Containerfile
     restart: unless-stopped
+    volumes:
+      - mcpo:/data
     networks:
       - open-webui
       - internet
@@ -77,6 +79,7 @@ services:
 volumes:
   postgres:
   redis:
+  mcpo:
   open-webui:
   caddy:
 
