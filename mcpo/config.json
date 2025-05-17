@@ -2,20 +2,40 @@
   "mcpServers": {
     "memory": {
       "command": "npx",
-      "args": ["-y", "@modelcontextprotocol/server-memory"],
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-memory"
+      ],
       "env": {
         "MEMORY_FILE_PATH": "/data/memory/memory.json"
       }
     },
     "time": {
       "command": "uvx",
-      "args": ["mcp-server-time", "--local-timezone=Europe/Berlin"]
+      "args": [
+        "mcp-server-time",
+        "--local-timezone=Europe/Berlin"
+      ]
     },
     "github": {
       "command": "npx",
       "args": [
         "-y",
         "@modelcontextprotocol/server-github"
+      ]
+    },
+    "hubspot": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@hubspot/mcp-server"
+      ]
+    },
+    "metabase-server": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@imlewc/metabase-server"
       ]
     }
   }
