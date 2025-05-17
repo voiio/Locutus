@@ -31,7 +31,7 @@
         "@hubspot/mcp-server"
       ]
     },
-    "metabase-server": {
+    "metabase": {
       "command": "npx",
       "args": [
         "-y",
