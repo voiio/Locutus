@@ -35,7 +35,7 @@
       "command": "npx",
       "args": [
         "-y",
-        "@imlewc/metabase-server"
+        "github:imlewc/metabase-server"
       ]
     }
   }
