@@ -1,0 +1,6 @@
+FROM ghcr.io/open-webui/mcpo:main
+
+COPY config.json /app/config.json
+
+CMD /app/config.json
+HEALTHCHECK CMD curl --fail http://localhost:8000/openapi.json || exit 1

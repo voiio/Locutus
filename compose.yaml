@@ -26,6 +26,16 @@ services:
     networks:
       - open-webui
 
+  mcpo:
+    container_name: mcpo
+    build:
+      context: mcpo
+      dockerfile: Containerfile
+    restart: unless-stopped
+    networks:
+      - open-webui
+      - internet
+
   open-webui:
     container_name: open-webui
     image: ghcr.io/open-webui/open-webui:main
@@ -36,6 +46,7 @@ services:
     depends_on:
       - postgres
       - redis
+      - mcpo
     environment:
       WEBUI_URL: https://${DOMAIN:-localhost}
       ENABLE_WEBSOCKET_SUPPORT: true
