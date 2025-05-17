@@ -10,6 +10,13 @@
     "time": {
       "command": "uvx",
       "args": ["mcp-server-time", "--local-timezone=Europe/Berlin"]
+    },
+    "github": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-github"
+      ]
     }
   }
 }
