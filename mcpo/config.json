@@ -24,6 +24,13 @@
         "@modelcontextprotocol/server-github"
       ]
     },
+    "sentry": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@sentry/mcp-server@latest"
+      ]
+    },
     "hubspot": {
       "command": "npx",
       "args": [
