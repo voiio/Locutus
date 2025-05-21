@@ -17,6 +17,13 @@
         "--local-timezone=Europe/Berlin"
       ]
     },
+    "algolia": {
+      "command": "go",
+      "args": [
+        "run",
+        "github.com/algolia/mcp/cmd/mcp@latest"
+      ]
+    },
     "github": {
       "command": "npx",
       "args": [

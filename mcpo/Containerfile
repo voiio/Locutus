@@ -1,5 +1,12 @@
 FROM ghcr.io/open-webui/mcpo:main
 
+ARG GO_VERSION=1.24.3
+ARg TARGETARCH
+
+RUN curl -sSL "https://go.dev/dl/go$GO_VERSION.linux-$TARGETARCH.tar.gz" | tar -C /usr/local -xzf -
+ENV PATH="$PATH:/usr/local/go/bin"
+RUN go version
+
 COPY config.json /app/config.json
 
 CMD /app/config.json
