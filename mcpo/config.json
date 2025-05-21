@@ -19,7 +19,7 @@
     },
     "voiio": {
       "type": "streamable_http",
-      "url": "https://voiio.app/mcp"
+      "url": "https://voiio.app/mcp/"
     },
     "algolia": {
       "command": "go",
