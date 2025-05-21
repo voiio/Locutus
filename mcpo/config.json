@@ -17,6 +17,10 @@
         "--local-timezone=Europe/Berlin"
       ]
     },
+    "voiio": {
+      "type": "streamable_http",
+      "url": "https://voiio.app/mcp"
+    },
     "algolia": {
       "command": "go",
       "args": [
