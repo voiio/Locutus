@@ -22,7 +22,10 @@
       "args": [
         "run",
         "github.com/algolia/mcp/cmd/mcp@latest"
-      ]
+      ],
+      "env": {
+        "MCP_ENABLED_TOOLS": "search_read"
+      }
     },
     "github": {
       "command": "npx",
