@@ -58,6 +58,12 @@
         "-y",
         "firecrawl-mcp"
       ]
+    },
+    "freshdesk": {
+      "command": "uvx",
+      "args": [
+        "freshdesk-mcp"
+      ]
     }
   }
 }
