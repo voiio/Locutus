@@ -1,4 +1,8 @@
 # Locutus
+
+![image](https://github.com/user-attachments/assets/6a2e49fb-eae8-4a60-a406-a1bf55bbb061)
+
+
 AI orchestration for Startups
 
 Locutus is a platform for orchestrating and running Model Context Protocol (MCP) services, enabling seamless integration of various AI and automation tools through a unified interface.
