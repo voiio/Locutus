@@ -64,6 +64,14 @@
       "args": [
         "freshdesk-mcp"
       ]
+    },
+    "analytics-mcp": {
+      "command": "uvx",
+      "args": [
+        "--from",
+        "git+https://github.com/googleanalytics/google-analytics-mcp.git",
+        "google-analytics-mcp"
+      ]
     }
   }
 }
