@@ -15,32 +15,9 @@
       "type": "streamable_http",
       "url": "https://mcp.voiio.app/mcp"
     },
-    "algolia": {
-      "command": "go",
-      "args": ["run", "github.com/algolia/mcp/cmd/mcp@latest"],
-      "env": {
-        "MCP_ENABLED_TOOLS": "search_read"
-      }
-    },
-    "github": {
-      "command": "npx",
-      "args": ["-y", "@modelcontextprotocol/server-github"]
-    },
-    "sentry": {
-      "command": "npx",
-      "args": ["-y", "@sentry/mcp-server@latest"]
-    },
     "hubspot": {
       "command": "npx",
       "args": ["-y", "@hubspot/mcp-server"]
-    },
-    "firecrawl": {
-      "command": "npx",
-      "args": ["-y", "firecrawl-mcp"]
-    },
-    "freshdesk": {
-      "command": "uvx",
-      "args": ["freshdesk-mcp"]
     },
     "analytics-mcp": {
       "command": "uvx",
